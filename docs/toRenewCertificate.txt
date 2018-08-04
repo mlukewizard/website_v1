@@ -1,0 +1,7 @@
+Change /etc/hosts from 127.0.0.1 octopus-one.co.uk to 127.0.0.1 localhost
+Move the octopus-one.co.uk.conf to octopus-one.co.uk.confback
+Move 000-default-ssl*.confback to 000-default-ssl*.conf
+Restart apache server
+Check its serving the default debian page rather than your webpage
+Redo the certificates with sudo certbot --authenticator webroot --installer apache
+Convert everything back again
