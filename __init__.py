@@ -10,11 +10,11 @@ app.config.from_object(Config)
 #bootstrap = Bootstrap(app)
 
 
-
 @app.route('/api/<string:name>', methods=['GET'])
 def apiHi(name):
     return name
 
+@app.route('/')
 @app.route('/index')
 def index():
     """
