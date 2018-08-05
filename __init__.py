@@ -1,9 +1,6 @@
-import sys
-sys.stdout = open('./website_log.txt', 'w')
-
 from flask import Flask, render_template, flash, redirect
 
-from forms.login_form_package.login_form import LoginForm
+from login_form_package.login_form import LoginForm
 from config import Config
 #from flask_bootstrap import Bootstrap
 
