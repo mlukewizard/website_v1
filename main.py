@@ -43,7 +43,6 @@ def login():
         return redirect('/')
     return render_template('/login_template/login.html', title='Sign In', form=form)
 
-
-#def run():
-#    app.run()
-#    app.debug = True
+if __name__ == "__main__":
+    app.run()
+    app.debug = True
