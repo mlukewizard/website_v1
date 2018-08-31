@@ -44,5 +44,5 @@ def login():
     return render_template('/login_template/login.html', title='Sign In', form=form)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port='80')
     app.debug = True
