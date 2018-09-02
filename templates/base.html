@@ -24,9 +24,10 @@ AAA Analytics
 
     {% block navbar %}
 
-    <div>
-    <img src="/static/AAA_logo.PNG" alt="Image could not be loaded">
+    <div style="width: 400px; height: 300px; overflow: hidden; margin-top:-50px">
+        <img src="/static/AAA_logo.PNG" alt="Image could not be loaded">
     </div>
+
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -44,8 +45,8 @@ AAA Analytics
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">Segmentation</a></li>
-            <li><a href="#">FMD Prediction</a></li>
+            <li><a href="/segmentation">Segmentation</a></li>
+            <li><a href="/#">FMD Prediction</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -61,15 +62,6 @@ AAA Analytics
 
 
     {% block content %}
-    <Head>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5849883266616121",
-        enable_page_level_ads: true
-      });
-    </script>
-    </Head>
     {% endblock %}
 
 {% endblock %}
