@@ -23,6 +23,10 @@ class User(Base):
     def __repr__(self):
         return "email_address = {0}, first_name = {1}, last_name = {2}, password = {3}".format(self.email_address, self.first_name, self.last_name, self.password)
 
+def check_or_create_database():
+    if not os.path.exists(DATABASE_NAME):
+        create_database()
+
 def create_database():
     # Create an engine that stores data in the local directory's
     # sqlalchemy_example.db file.
@@ -33,6 +37,7 @@ def create_database():
     Base.metadata.create_all(engine)
 
 def add_user(user):
+    check_or_create_database()
     engine = create_engine('sqlite:///{0}.db'.format(DATABASE_NAME))
     Base.metadata.bind = engine
     # Adds some stuff to the database
@@ -45,6 +50,7 @@ def add_user(user):
 
 
 def get_user_from_email(query_email):
+    check_or_create_database()
     engine = create_engine('sqlite:///{0}.db'.format(DATABASE_NAME))
     Base.metadata.bind = engine
     DBSession = sessionmaker()
@@ -57,6 +63,7 @@ def get_user_from_email(query_email):
         return None
 
 def get_all_users():
+    check_or_create_database()
     engine = create_engine('sqlite:///{0}.db'.format(DATABASE_NAME))
     Base.metadata.bind = engine
     DBSession = sessionmaker()
@@ -66,6 +73,5 @@ def get_all_users():
 
 if __name__ == "__main__":
 
-    create_database()
     add_user(User(email_address = 'sarah@gmail.com', first_name = "sarah", last_name = "craddock", password="Sarah<3luke"))
     get_user_from_email('sarah@gmail.com')
