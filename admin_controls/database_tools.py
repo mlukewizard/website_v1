@@ -5,4 +5,4 @@ def print_all_users():
         print(user)
 
 if __name__ == "__main__":
-    create_database()
+    print_all_users()

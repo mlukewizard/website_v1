@@ -65,6 +65,7 @@ def get_all_users():
     return session.query(User).all()
 
 if __name__ == "__main__":
-    #create_database()
-    add_user(User(email_address = 'lukemarkham', first_name = "luke", last_name = "markham", password="lemontree"))
-    get_user_from_email('lukema')
+
+    create_database()
+    add_user(User(email_address = 'sarah@gmail.com', first_name = "sarah", last_name = "craddock", password="Sarah<3luke"))
+    get_user_from_email('sarah@gmail.com')

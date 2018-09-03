@@ -16,53 +16,69 @@ AAA Analytics
     google_ad_client: "ca-pub-5849883266616121",
     enable_page_level_ads: true
   });
+
 </script>
 {% endblock %}
 
 
 {% block body %}
 
-    {% block navbar %}
+{% block navbar %}
 
-    <div style="width: 400px; height: 300px; overflow: hidden; margin-top:-50px">
-        <img src="/static/AAA_logo.PNG" alt="Image could not be loaded">
-    </div>
+<div style="width: 400px; height: 300px; overflow: hidden; margin-top:-50px">
+    <img src="/static/AAA_logo.PNG" alt="Image could not be loaded">
+</div>
 
 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/index">AAA-Analytics</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index">AAA-Analytics</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="/segmentation">Segmentation</a></li>
-            <li><a href="/#">FMD Prediction</a></li>
-          </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/index">Segmentation</a></li>
+                <li><a href="/index">FMD Prediction</a></li>
+            </ul>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-              <li><a href="/register">Register</a></li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if logged_in %}
+                <li><a href="/logout">Log Out</a></li>
+                <li><a><font color="blue">Logged in as {{first_name}}</font></a></li>
+                {% endif %}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
         </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    </div><!-- /.container-fluid -->
+</nav>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endwith %}
 
 
-    {% endblock %}
-
-
-    {% block content %}
-    {% endblock %}
+{% endblock %}
 
 {% endblock %}
 
